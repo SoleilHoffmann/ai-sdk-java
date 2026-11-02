@@ -122,6 +122,8 @@
     <floor.jackson.version>2.18.0</floor.jackson.version>
     <floor.httpcomponents-core5.version>5.2.1</floor.httpcomponents-core5.version>
     <floor.httpcomponents-client5.version>5.2.1</floor.httpcomponents-client5.version>
+    <floor.slf4j.version>2.0.0</floor.slf4j.version>
+    <floor.spring-ai.version>2.0.0</floor.spring-ai.version>
   </properties>
 
   <dependencyManagement>
@@ -1016,6 +1018,14 @@ https://gitbox.apache.org/repos/asf?p=maven-pmd-plugin.git;a=blob_plain;f=src/ma
             <type>pom</type>
             <scope>import</scope>
           </dependency>
+          <!-- optional integration: spring-ai is declared optional in module poms, but still compiled -->
+          <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-bom</artifactId>
+            <version>${floor.spring-ai.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+          </dependency>
           <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
@@ -1045,6 +1055,11 @@ https://gitbox.apache.org/repos/asf?p=maven-pmd-plugin.git;a=blob_plain;f=src/ma
             <groupId>org.apache.httpcomponents.client5</groupId>
             <artifactId>httpclient5</artifactId>
             <version>${floor.httpcomponents-client5.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${floor.slf4j.version}</version>
           </dependency>
         </dependencies>
       </dependencyManagement>
